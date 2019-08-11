@@ -1,0 +1,6 @@
+#seen from Stephen's tweet, a nice function to drop in your bashrc. 
+#`nfiletypes` tells you the number of files of each extension type in the current directory
+
+nfiletypes () { find . -maxdepth 1 -type f | sed 's/.*\.//' | sort | uniq -c | sed 's/^ *//g' | sed 's/ /\t/g'; }
+
+#Konrad commented:There’s a neat single command that implements the last two `sed`s: `column -t`
