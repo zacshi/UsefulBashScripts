@@ -1,4 +1,6 @@
-#from someone
+# from someone
+
+out_file="www"
 # Print xml file:
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>" > $out_file
 echo "<Session genome=\"hg19\" hasGeneTrack=\"true\" hasSequenceTrack=\"true\" locus=\"$gene_name\" path=\"$WINDOWS_HOME_DIR\\$out_file\" version=\"8\">" >> $out_file
