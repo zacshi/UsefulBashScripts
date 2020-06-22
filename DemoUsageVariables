@@ -5,7 +5,7 @@ display_usage() {
 	echo -e "Example: $0 -c WHAT031448_D1 -y 2020 -d /research/pathto/resgen/legacy/gb_customTracks/tp/zshi\n"
 	}
 
-if [  $# -le 6 ]
+if [  $# -le 5 ]
 	then
 		display_usage
 		exit 1
