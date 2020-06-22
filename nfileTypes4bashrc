@@ -4,3 +4,5 @@
 nfiletypes () { find . -maxdepth 1 -type f | sed 's/.*\.//' | sort | uniq -c | sed 's/^ *//g' | sed 's/ /\t/g'; }
 
 #Konrad commented:There’s a neat single command that implements the last two `sed`s: `column -t`
+
+nfiletypes () { find . -maxdepth 1 -type f | sed 's/.*\.//' | sort | uniq -c | column -t; }
