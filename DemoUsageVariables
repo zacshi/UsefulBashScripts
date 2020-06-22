@@ -1,0 +1,35 @@
+#!/bin/bash
+# reminder for usage of this script
+display_usage() {
+	echo -e "\nUsage:   $0 -c case_name -y case_year -d dest_dir"
+	echo -e "Example: $0 -c WHAT031448_D1 -y 2020 -d /research/pathto/resgen/legacy/gb_customTracks/tp/zshi\n"
+	}
+
+if [  $# -le 6 ]
+	then
+		display_usage
+		exit 1
+fi
+
+# assigning variables
+while [[ $# -gt 1 ]]
+do
+	key="$1"
+	case $key in
+    -c)
+    case_name="$2"
+    shift
+    ;;
+    -y)
+    case_year="$2"
+    shift
+    ;;
+    -d)
+	  dest_dir="$2"
+	  shift
+	  ;;
+    *)
+    ;;
+ 	esac
+  	shift
+done
