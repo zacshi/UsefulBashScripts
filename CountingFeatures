@@ -1,0 +1,20 @@
+##htseq-count (from htseq) requires gff format file, gtf annotation file seems not working
+##check the gff file and make sure -i specifies what you need as the gene identity
+##it uses python3 and the output is a single file for each bam input. 
+#sample command
+htseq-count -f bam -r pos -s no -a 10 \
+-o /scratch_space/zshi1/trashCan/SRR20713${f}samout.sam \
+-t exon -i gene_id -m union \
+/scratch_space/zshi1/projects/HopkinsGDcapstone/bams/SRR20713${f}Aligned.sortedByCoord.out.bam \
+~/RefGenomes/gencode.v34.annotation.gff3 \
+> ~/Projects/HopkinGDS/counts/SRR20713${f}.txt
+
+##featureCounts (from subread) uses gtf annotation and is more flexible, much more fast
+##output in one table with multiple samples. 
+#sample command
+featureCounts -T 12 -g gene_id -s 0 \
+        -a ~/RefGenomes/Homo_sapiens/NCBI/GRCh38/Annotation/Genes/genes_chrRemoved.gtf \
+        -o featureCountResult.txt \
+        /scratch_space/zshi1/projects/HopkinsGDcapstone/bams/SRR2071345Aligned.sortedByCoord.out.bam \
+        /scratch_space/zshi1/projects/HopkinsGDcapstone/bams/SRR2071346Aligned.sortedByCoord.out.bam \
+        /scratch_space/zshi1/projects/HopkinsGDcapstone/bams/SRR2071347Aligned.sortedByCoord.out.bam
