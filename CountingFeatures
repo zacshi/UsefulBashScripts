@@ -12,7 +12,7 @@ htseq-count -f bam -r pos -a 10 \
 > ~/Projects/HopkinGDS/counts/SRR20713${f}.txt
 
 ##featureCounts (from subread) uses gtf annotation and is more flexible, much more fast
-##output in one table with multiple samples. 
+##output in one table with multiple samples in separate columns. 
 #sample command
 featureCounts -T 12 -g gene_id -s 0 \
         -a ~/RefGenomes/Homo_sapiens/NCBI/GRCh38/Annotation/Genes/genes_chrRemoved.gtf \
