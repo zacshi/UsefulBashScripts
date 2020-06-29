@@ -2,9 +2,11 @@
 ##check the gff file and make sure -i specifies what you need as the gene identity
 ##it uses python3 and the output is a single file for each bam input. 
 #sample command
-htseq-count -f bam -r pos -s no -a 10 \
--o /scratch_space/zshi1/trashCan/SRR20713${f}samout.sam \
+htseq-count -f bam -r pos -a 10 \
+-o /scratch_space/zshi1/trashCan/SRR20713${f}samout.sam \ # likely optional
+-q \ # --quiet
 -t exon -i gene_id -m union \
+-s no \ # stranded: yes or not or reverse
 /scratch_space/zshi1/projects/HopkinsGDcapstone/bams/SRR20713${f}Aligned.sortedByCoord.out.bam \
 ~/RefGenomes/gencode.v34.annotation.gff3 \
 > ~/Projects/HopkinGDS/counts/SRR20713${f}.txt
